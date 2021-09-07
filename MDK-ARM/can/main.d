@@ -35,4 +35,3 @@ can\main.o: ..\bsp\boards\bsp_can.h
 can\main.o: ..\application\struct_typedef.h
 can\main.o: ..\application\CAN_receive.h
 can\main.o: ..\application\pid.h
-can\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
