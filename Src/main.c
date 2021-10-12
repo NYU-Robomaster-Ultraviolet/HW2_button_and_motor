@@ -38,7 +38,7 @@
 /* USER CODE BEGIN PD */
 
 // the id of the motor, need to change according to the set id, 0-3
-#define ROBOT_ID 0
+#define ROBOT_ID 1
 
 // motor speed, increase if motor is not spinning
 #define SPEED 2700 // there's a 9:1 gear box, so the actual rpm is divided by 9
@@ -65,6 +65,8 @@ PID_TypeDef motor_pid[4];
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+void turnOnMotor(void);
+void turnOffMotor(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -125,6 +127,19 @@ int main(void)
   
   while (1)
   {
+<<<<<<< Updated upstream
+		if(!HAL_GPIO_ReadPin(Motor_GPIO_Port, Motor_Pin)){
+			turnOnMotor();
+		}
+		else{
+		turnOffMotor();}
+=======
+		if(!HAL_GPIO_ReadPin(user_key_GPIO_Port, user_key_Pin)){
+			turnOnMotor();
+		}else{
+		turnOffMotor();}
+		
+>>>>>>> Stashed changes
 		HAL_Delay(10);
 			
 
