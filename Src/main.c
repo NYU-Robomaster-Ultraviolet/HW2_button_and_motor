@@ -38,7 +38,7 @@
 /* USER CODE BEGIN PD */
 
 // the id of the motor, need to change according to the set id, 0-3
-#define ROBOT_ID 0
+#define ROBOT_ID 1
 
 // motor speed, increase if motor is not spinning
 #define SPEED 2700 // there's a 9:1 gear box, so the actual rpm is divided by 9
@@ -129,7 +129,11 @@ int main(void)
 			
 
     /* USER CODE END WHILE */
-
+    if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 0) {
+      turnOnMotor();
+    } else {
+      turnOffMotor();
+    }
     /* USER CODE BEGIN 3 */
 		
         
