@@ -39,7 +39,7 @@
 
 // the id of the motor, need to change according to the set id, 0-3
 #define ROBOT_ID 0
-
+#define ROBOT ID 1
 // motor speed, increase if motor is not spinning
 #define SPEED 2700 // there's a 9:1 gear box, so the actual rpm is divided by 9
 
@@ -72,6 +72,9 @@ void SystemClock_Config(void);
 
 
 /* USER CODE END 0 */
+
+void turnOnMotor(void);
+void turnOffMotor(void);
 
 /**
   * @brief  The application entry point.
@@ -125,7 +128,18 @@ int main(void)
   
   while (1)
   {
+		
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_0) == 0) 
+		{
+			turnOnMotor();
+		}
+		else 
+		{
+			turnOffMotor();
+		}
+		
 		HAL_Delay(10);
+    //
 			
 
     /* USER CODE END WHILE */
