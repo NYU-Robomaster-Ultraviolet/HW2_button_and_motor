@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "can.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -103,6 +104,7 @@ int main(void)
   MX_GPIO_Init();
   MX_CAN1_Init();
   MX_CAN2_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 	
 	// can bus init
@@ -122,25 +124,28 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  
   while (1)
   {
-		HAL_Delay(10);
-			
 
+		HAL_Delay(10);
+		if(HAL_GPIO_ReadPin(user_key_GPIO_Port,user_key_Pin)==0){
+			turnOnMotor();
+		}
+		else{
+			turnOffMotor();
+		}
+	
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		
-        
-  }
+	}		
   /* USER CODE END 3 */
 }
-
 /**
   * @brief System Clock Configuration
   * @retval None
   */
+
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
