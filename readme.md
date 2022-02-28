@@ -16,7 +16,7 @@ Enable user_key, which is on PA0. Set it the same way you set LED, but this time
 
 Check the motor id: the green light will blink several times within a second on the ESC. The times it blinks is its id (e.g. blink twice a second means id is 2)
 
-Change the macro **ROBOT_ID** to corresponding id
+Change the macro **ROBOT_ID** to corresponding id (when you power up the motor, the id is how many times the green light blink on the c620 module)
 
 Called the turnOnMotor() function to turn on the motor and turnOffMotor() to turn it off. Remark: you have to continuously calls the function in order for the PID to work. If you don't understand what I mean here, ask team leads.
 
